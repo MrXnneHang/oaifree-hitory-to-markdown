@@ -1,16 +1,7 @@
-# Python lib starter
+# oaifree-json-to-markdown
 
-Just a template for quickly creating a python library.
-
-<p align="center">
-   <a href="https://python.org/" target="_blank"><img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/moelib?logo=python&style=flat-square"></a>
-   <a href="https://pypi.org/project/moelib/" target="_blank"><img src="https://img.shields.io/pypi/v/moelib?style=flat-square" alt="pypi"></a>
-   <a href="https://pypi.org/project/moelib/" target="_blank"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/moelib?style=flat-square"></a>
-   <a href="LICENSE"><img alt="LICENSE" src="https://img.shields.io/github/license/ShigureLab/moelib?style=flat-square"></a>
-   <br/>
-   <a href="https://github.com/astral-sh/uv"><img alt="uv" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json&style=flat-square"></a>
-   <a href="https://github.com/astral-sh/ruff"><img alt="ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&style=flat-square"></a>
-   <a href="https://gitmoji.dev"><img alt="Gitmoji" src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67?style=flat-square"></a>
-</p>
-
-Before the work starts, replace the `moelib` with the name of your library.
+- [ ] tk用户界面，待处理列表
+- [ ] 自动对刚刚进入的文件进行重命名为时间戳
+- [ ] 自动检测文件是否已经被处理过，并且不勾上该文件，只勾选未处理的文件
+- [ ] 手动处理和自动处理模式，一个可以选择要保留的对话，一个全部保留
+- [x] ...
