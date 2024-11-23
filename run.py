@@ -19,15 +19,15 @@ for i in range(conversation_len):
         user_message_list = user_message.split("\n")
         ## 用**包裹并且去除空行以及空格
         user_message = "".join(
-            "**" + x.strip() + "**\n" for x in user_message_list if x
+            "__" + x.strip() + "__<br>\r\n" for x in user_message_list if x
         )
         user_message = (
-            user_message + "<details>\r\n\r\n<summary>\r\n回答\r\n</summary>\r\n\r\n"
+            user_message + "\r\n<details>\r\n<summary>\r\n回答\r\n</summary>\r\n\r\n"
         )
     elif data["messages"][i]["author"]["role"] == "assistant":
         # response
         response = data["messages"][i]["content"]["parts"][0]
-        response = response + "\r\n\r\n</details>"
+        response = response + "\r\n\r\n</details>\r\n\r\n"
         write_content = user_message + response
         write_content_list.append(write_content)
 

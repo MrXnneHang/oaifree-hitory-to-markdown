@@ -1,9 +1,9 @@
-**``only_inputs`` argument is deprecated and is ignored now (defaults to ``True``).**
-**To accumulate gradient for other parts of the graph, please use**
-**``torch.autograd.backward``.**
-**翻译一下**
-<details>
+__``only_inputs`` argument is deprecated and is ignored now (defaults to ``True``).__<br>
+__To accumulate gradient for other parts of the graph, please use__<br>
+__``torch.autograd.backward``.__<br>
+__翻译一下__<br>
 
+<details>
 <summary>
 回答
 </summary>
@@ -14,9 +14,11 @@
 要对计算图的其他部分累积梯度，请使用 ``torch.autograd.backward``。
 
 </details>
-**only_inputs原本是用来干啥的**
-<details>
 
+
+__only_inputs原本是用来干啥的__<br>
+
+<details>
 <summary>
 回答
 </summary>
@@ -46,10 +48,12 @@ torch.autograd.backward(loss)
 如果你需要选择性地计算其他部分的梯度，你可以通过指定 `grad_tensors` 参数或者对特定部分进行梯度累积。
 
 </details>
-**也就是说，如果有输入x,输出z,中间y**
-**那么梯度就只会返回z_at_x?**
-<details>
 
+
+__也就是说，如果有输入x,输出z,中间y__<br>
+__那么梯度就只会返回z_at_x?__<br>
+
+<details>
 <summary>
 回答
 </summary>
@@ -59,9 +63,11 @@ torch.autograd.backward(loss)
 而如果你只关心 `z` 对 `x` 的梯度，之前通过 `only_inputs=True` 可以只计算 `∂z/∂x`，不计算 `∂z/∂y` 等中间梯度。但现在这个参数已经废弃，默认行为会计算输入 `x` 的梯度。
 
 </details>
-**我懂了，因为我们计算梯度的目的也是根据output调整参数，所以实际上只需要output就行，而且这里面也包含了前面所有的梯度了**
-<details>
 
+
+__我懂了，因为我们计算梯度的目的也是根据output调整参数，所以实际上只需要output就行，而且这里面也包含了前面所有的梯度了__<br>
+
+<details>
 <summary>
 回答
 </summary>
@@ -69,9 +75,11 @@ torch.autograd.backward(loss)
 没错，你理解得很对！计算梯度的目的是为了根据损失函数（output）来调整模型的参数。即使计算图中有中间变量（如 `y`），最终我们只需要从损失 `z` 对输入 `x` 的梯度，来更新与 `x` 相关的参数。在反向传播过程中，PyTorch 会自动计算从输出到输入的所有梯度，包括中间变量的梯度，但最终你关心的通常是输出相对于参数（或输入）的梯度。因此，计算过程会“自动包含”中间的梯度信息。
 
 </details>
-**也就是说，训练时，计算梯度是从浅层到深层，从输入到输出，而反向传播时，则是从输出到输入，从深层往浅层，把梯度像剥洋葱一样根据追踪图一层一层往前推**
-<details>
 
+
+__也就是说，训练时，计算梯度是从浅层到深层，从输入到输出，而反向传播时，则是从输出到输入，从深层往浅层，把梯度像剥洋葱一样根据追踪图一层一层往前推__<br>
+
+<details>
 <summary>
 回答
 </summary>
@@ -97,3 +105,4 @@ torch.autograd.backward(loss)
 这样，梯度才会被正确地传递和更新，最终使得模型参数逐渐优化，达到最小化损失的目标。
 
 </details>
+
