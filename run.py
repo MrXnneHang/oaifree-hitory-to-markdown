@@ -16,8 +16,13 @@ for i in range(conversation_len):
     if data["messages"][i]["author"]["role"] == "user":
         # user message
         user_message = data["messages"][i]["content"]["parts"][0]
+        user_message_list = user_message.split("\n")
+        ## 用**包裹并且去除空行以及空格
+        user_message = "".join(
+            "**" + x.strip() + "**\n" for x in user_message_list if x
+        )
         user_message = (
-            "<details>\r\n\r\n<summary>\r\n" + user_message + "\r\n</summary>\r\n\r\n"
+            user_message + "<details>\r\n\r\n<summary>\r\n回答\r\n</summary>\r\n\r\n"
         )
     elif data["messages"][i]["author"]["role"] == "assistant":
         # response
